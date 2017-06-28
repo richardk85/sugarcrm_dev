@@ -48,7 +48,8 @@ require_once('modules/Opportunities/Opportunity.php');
 require_once('service/core/SoapHelperWebService.php');
 require_once('modules/Cases/Case.php');
 //ignore notices
-error_reporting(E_ALL ^ E_NOTICE);
+$old_error_reporting = error_reporting();
+error_reporting($old_error_reporting & ~E_NOTICE & ~E_STRICT);
 
 
 global $HTTP_RAW_POST_DATA;
